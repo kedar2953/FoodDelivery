@@ -1,0 +1,7 @@
+prop drilling - when sending props from one component to other and if there are too many components in between it becomes overhead
+so we use useContext - we wrap our application and make state of components global
+whenever change happen to component it is visible to wherever it has to be required
+
+useReducer hook - when we have different cards and each one has a button creating different state for each button is not feasible so we use useReducer
+
+when we refresh the page cart gets empty , because we are not storing the state in db or localstorage
