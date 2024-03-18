@@ -3,7 +3,10 @@ const database = require('./utils/database')
 const app=express()
 const cors=require('cors')
 
-app.use(express.json())
+const path = require("path");
+app.use(express.static(path.join(__dirname, "build")));
+
+app.use(express.json()) 
 app.use(cors())
 const router=require('./Routes/user')
 require('dotenv').config()
