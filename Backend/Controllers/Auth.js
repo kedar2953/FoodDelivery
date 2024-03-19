@@ -29,20 +29,20 @@ exports.signup = async (req,res) => {
         }
 
         //secure password
-        let hashedPassword;
-        try{
-            hashedPassword = await bcrypt.hash(password, 10);
-        }
-        catch(err) {
-            return res.status(500).json({
-                success:false,
-                message:'Error inn hashing Password',
-            });
-        }
+        // let hashedPassword;
+        // try{
+        //     hashedPassword = await bcrypt.hash(password, 10);
+        // }
+        // catch(err) {
+        //     return res.status(500).json({
+        //         success:false,
+        //         message:'Error inn hashing Password',
+        //     });
+        // }
 
         //create entry for User
         const user = await User.create({
-            name,location,email,password:hashedPassword
+            name,location,email,password
         })
         console.log(user);
 
@@ -97,7 +97,7 @@ exports.login = async (req,res) => {
         //id is passed bcoz when user login , token is generated 
         //from token we can fetch id , from that id we can have user's all data 
         //verify password & generate a JWT token
-        if(await bcrypt.compare(password,user.password) ) {
+        if((password === user.password) ) {
             //password match
             let token =  jwt.sign(payload, 
                                 process.env.JWT_SECRET,
