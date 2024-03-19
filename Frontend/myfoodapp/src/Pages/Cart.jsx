@@ -17,7 +17,7 @@ export default function Cart() {
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
-    let response = await axios.post("http://localhost:5000/api/v1/orderData", {
+    let response = await axios.post("https://fooddelivery-78x2.onrender.com/api/v1/orderData", {
       order_data: data,
       email: userEmail,
       order_date: new Date().toDateString()

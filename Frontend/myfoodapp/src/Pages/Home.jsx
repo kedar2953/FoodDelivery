@@ -15,7 +15,7 @@ function Home() {
     const [foodItem,setfoodItem]=useState([]);
     async function loadData() {
         try {
-            const response = await axios.post('http://localhost:5000/api/v1/foodData');
+            const response = await axios.post('https://fooddelivery-78x2.onrender.com/api/v1/foodData');
             
             // Ensure the response contains the expected data structure
             // To convert the response data from an Axios request to JSON format, you can use the data property of the Axios response
